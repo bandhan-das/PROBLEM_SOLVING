@@ -1,0 +1,20 @@
+class Solution {
+    public int poorPigs(int buckets, int minutesToDie, int minutesToTest) {
+        // If there's only one bucket, you don't need any pigs.
+        if (buckets-- == 1) {
+            return 0;
+        }
+        
+        // Calculate the base value, which is (minutesToTest / minutesToDie + 1).
+        int base = minutesToTest / minutesToDie + 1;
+        int res = 0; // Initialize the result variable to keep track of the number of pigs needed.
+
+        // Use a while loop to reduce the number of buckets until there's only one left.
+        while (buckets > 0) {
+            buckets = buckets / base; // Divide the buckets by the base value.
+            res += 1; // Increment the result, as you'll need another pig for the remaining buckets.
+        }
+
+        return res; // Return the minimum number of pigs required.
+    }
+}
