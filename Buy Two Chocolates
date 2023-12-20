@@ -1,0 +1,17 @@
+class Solution {
+    public int buyChoco(int[] prices, int money) {
+        int minimumPrice=Integer.MAX_VALUE;
+        int minimumPrice1=Integer.MAX_VALUE;
+        for(int price:prices){
+            if(price<minimumPrice){
+                minimumPrice1=minimumPrice;
+                minimumPrice=price;
+            }else{
+                minimumPrice1=Math.min(minimumPrice1,price);
+            }}
+            if(minimumPrice+minimumPrice1 > money){
+                return money;
+            }
+                return money-(minimumPrice+minimumPrice1);
+        }
+}
